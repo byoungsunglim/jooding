@@ -20,6 +20,19 @@ class App extends StatelessWidget {
   }
 }
 
+class PlaceholderWidget extends StatelessWidget {
+ final Color color;
+
+ PlaceholderWidget(this.color);
+
+ @override
+ Widget build(BuildContext context) {
+   return Container(
+     color: color,
+   );
+ }
+}
+
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -30,7 +43,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
+    PlaceholderWidget(Colors.white),
+    PlaceholderWidget(Colors.deepOrange),
+    PlaceholderWidget(Colors.green)
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,8 +67,7 @@ class _HomeState extends State<Home> {
             icon: new Icon(Icons.add_circle),
             title: new Text('Input'),
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text('My'))
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('My'))
         ],
       ),
     );
