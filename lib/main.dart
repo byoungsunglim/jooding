@@ -62,16 +62,4 @@ class _HomeState extends State<Home> {
       _currentIndex = index;
     });
   }
-
-  void home() {
-
-  }
-
-  void input() {
-    
-  }
-
-  void my() {
-    
-  }
 }
