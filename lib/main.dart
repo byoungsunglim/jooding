@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import 'kakaoLogin.dart';
-import 'SecondScreen.dart';
+import 'Survey.dart';
 import 'package:flutter_kakao_login/flutter_kakao_login.dart';
 
 void main() => runApp(new MyApp());
@@ -34,11 +36,38 @@ class LoginScreen extends StatelessWidget {
                 print(result);
                 if (result == KakaoLoginStatus.loggedIn) {
                   final KakaoAccountResult account = await kakao.getAccountInfo();
-                  final userProfileImagePath = (account.userProfileImagePath == null) ? 'None' : account.userProfileImagePath;
+                  final userID = (account.userID == null) ? "" : account.userID;
+                  final userEmail = (account.userEmail == null) ? "" : account.userEmail;
+                  final userPhoneNumber = (account.userPhoneNumber == null) ? "" : account.userPhoneNumber;
+                  final userDisplayID = (account.userDisplayID == null) ? "" : account.userDisplayID;
+                  final userNickname =  (account.userNickname == null) ? "" : account.userNickname;
+                  final userProfileImagePath = (account.userProfileImagePath == null) ? "" : account.userProfileImagePath;
+                  final userThumbnailImagePath = (account.userThumbnailImagePath == null) ? "" : account.userThumbnailImagePath;
+
+                  // print('- ID is ${userID}\n'
+                  //       '- Email is ${userEmail}\n'
+                  //       '- PhoneNumber is ${userPhoneNumber}\n'
+                  //       '- DisplayID is ${userDisplayID}\n'
+                  //       '- Nickname is ${userNickname}\n'
+                  //       '- ProfileImagePath is ${userProfileImagePath}\n'
+                  //       '- ThumbnailImagePath is ${userThumbnailImagePath}');
+
+                  var url = 'https://jooding-development.herokuapp.com/users/registration';
+                  var response = await http.post(url, body: 
+                    json.encode({
+                      'name': userNickname,
+                      'email': userEmail, 
+                      'profile_image': userProfileImagePath,
+                      'phone': userPhoneNumber,
+                      'kakao_id': userDisplayID
+                    }));
+                  print('Response status: ${response.statusCode}');
+                  print('Response body: ${response.body}');
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => SecondScreen(),
+                      builder: (BuildContext context) => Survey(),
                   ));
                 }
                 else {
