@@ -4,13 +4,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'home.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
-class Survey extends StatefulWidget {
+class Questionnaires extends StatefulWidget {
   @override
-  _SurveyState createState() => new _SurveyState();
+  _QuestionnairesState createState() => new _QuestionnairesState();
 }
 
-class _SurveyState extends State<Survey> {
+class _QuestionnairesState extends State<Questionnaires> {
   List _data;
   List _saved = [];
   
@@ -26,7 +27,7 @@ class _SurveyState extends State<Survey> {
     _data = jsonDecode(response.body);
     });
         
-    print(_data[1]["title"]);
+    // print(_data[0]["question"]);
         
     return "Success!";
     }
@@ -38,29 +39,17 @@ class _SurveyState extends State<Survey> {
   }
   
   @override
-  Widget build(BuildContext context){   
+  Widget build(BuildContext context) {
     return new Scaffold(
-      // appBar: new AppBar(title: new Text("Listviews"), backgroundColor: Colors.blue),
-      body: SafeArea(
-        bottom: false,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Container(
-            height: 100,
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.blue[600],
-            alignment: Alignment.center,
-            child: Text('일주일에 몇 번 음주를 하십니까?',
-            textScaleFactor: 0.8,
-              style: Theme.of(context)
-                  .textTheme
-                  .display1
-                  .copyWith(color: Colors.white)),
-          ),
-          Expanded(
-            child: new ListView.builder(
+      appBar: new AppBar(
+        title: new Text("Swiper"),
+      ),
+    body:  new Swiper(
+        itemBuilder: (BuildContext context,int index){
+          return new ListView.builder(
               shrinkWrap: true,
               padding: EdgeInsets.all(8.0),
-              itemCount: _data == null ? 0 : 5,
+              itemCount: _data == null ? 0 : _data.length,
               itemBuilder: (BuildContext context, int index){
                 return new CheckboxListTile(
                   title: new Text(_data[index]["title"]),
@@ -77,10 +66,11 @@ class _SurveyState extends State<Survey> {
                   },
                 );
               },
-            ),
-          )
-        ]
-        )
+            );
+        },
+        itemCount: 3,
+        pagination: new SwiperPagination(),
+        control: new SwiperControl(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
