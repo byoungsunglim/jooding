@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "852288103818",
+    "firebase_url": "https://jooding-development.firebaseio.com",
+    "project_id": "jooding-development",
+    "storage_bucket": "jooding-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852288103818:android:458f18bd428eec9d5f1473",
+        "android_client_info": {
+          "package_name": "com.jooding.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852288103818-c5a6imtotap6rb8ns1achehkajm6t08v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jooding.android",
+            "certificate_hash": "49f0070bc240ef92270f42708057aeec04870f4e"
+          }
+        },
+        {
+          "client_id": "852288103818-e252t1ajg2aq0pqmv6nv6qjhoqf8vaon.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Q8a8bGI8dfZC21csSYACwvsdun3axoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852288103818-e252t1ajg2aq0pqmv6nv6qjhoqf8vaon.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

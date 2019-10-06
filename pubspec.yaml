@@ -30,7 +30,9 @@ dependencies:
   equatable: ^0.3.0  # https://pub.dev/packages/equatable
   meta: ^1.1.6  # https://pub.dev/packages/meta
   shared_preferences: any
-  flutter_swiper : any
+  flutter_swiper: any
+  firebase_auth: ^0.11.1+8
+  google_sign_in: ^4.0.7
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +52,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - lib/ui/icons/logo.png
+   - lib/ui/icons/
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

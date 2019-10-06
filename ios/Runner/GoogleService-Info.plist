@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>852288103818-tqjc54v5mio4eb27nimb72ovedds8vnj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.852288103818-tqjc54v5mio4eb27nimb72ovedds8vnj</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>852288103818-c5a6imtotap6rb8ns1achehkajm6t08v.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvZPs1kr48jnDkoKuLANos1TFomdsvzQo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>852288103818</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.jooding.ios</string>
+	<key>PROJECT_ID</key>
+	<string>jooding-development</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jooding-development.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:852288103818:ios:ce075908824f1e2a5f1473</string>
+	<key>DATABASE_URL</key>
+	<string>https://jooding-development.firebaseio.com</string>
+</dict>
+</plist>
