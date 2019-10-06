@@ -1,4 +1,4 @@
-package com.example.jooding
+package com.jooding.android
 
 import android.os.Bundle
 

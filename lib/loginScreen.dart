@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'kakaoLogin.dart';
 import 'package:jooding/questionnaires.dart';
+import 'package:jooding/googleLogin.dart';
 import 'package:flutter_kakao_login/flutter_kakao_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -83,6 +84,7 @@ class LoginScreen extends StatelessWidget {
 
                       SharedPreferences prefs = await SharedPreferences.getInstance();
                       prefs.setBool("welcome", true);
+                      prefs.setString("uid", userEmail);
                
                       Navigator.push(
                         context,
@@ -94,23 +96,69 @@ class LoginScreen extends StatelessWidget {
                       _showSnackbar(context);
                     }
                   },
-                child: Container(
-                  width: 320.0,
-                  height: 60.0,
-                  alignment: FractionalOffset.center,
-                  decoration: new BoxDecoration(
-                    color: const Color.fromRGBO(255, 232, 18, 1.0),
-                    borderRadius: new BorderRadius.all(const Radius.circular(5.0)),
-                  ),
-                  child: new Text(
-                    "카카오톡으로 로그인",
-                    style: new TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.0,
-                      letterSpacing: 0.3,
+                  child: Container(
+                    width: 320.0,
+                    height: 60.0,
+                    alignment: FractionalOffset.center,
+                    decoration: new BoxDecoration(
+                      color: const Color.fromRGBO(255, 232, 18, 1.0),
+                      borderRadius: new BorderRadius.all(const Radius.circular(5.0)),
+                    ),
+                    child: new Text(
+                      "카카오톡 로그인",
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        letterSpacing: 0.3,
+                      )
                     )
-                  )
+                  ),
                 ),
+                InkWell (
+                  onTap: () async {
+                    final user = await signInWithGoogle().catchError((e) {
+                      _showSnackbar(context);
+                    });
+
+                    var url = 'https://jooding-development.herokuapp.com/users/registration';
+                    var response = await http.post(url, body: 
+                      json.encode({
+                        'name': user.displayName,
+                        'email': user.email, 
+                        'profile_image': user.photoUrl
+                      }));
+                    print('Response status: ${response.statusCode}');
+                    print('Response body: ${response.body}');
+                    
+                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                    prefs.setBool("welcome", true);
+                    prefs.setString("uid", user.email);
+                    
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Questionnaires();
+                        },
+                      ),
+                    );
+                  },
+                  child: Container(
+                    width: 320.0,
+                    height: 60.0,
+                    alignment: FractionalOffset.center,
+                    decoration: new BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: new BorderRadius.all(const Radius.circular(5.0)),
+                    ),
+                    child: new Text(
+                      "구글 로그인",
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        letterSpacing: 0.3,
+                      )
+                    )
+                  ),
                 )                
               ]
               )
@@ -123,7 +171,7 @@ class LoginScreen extends StatelessWidget {
   void _showSnackbar(BuildContext context) {
     final scaff = Scaffold.of(context);
     scaff.showSnackBar(SnackBar(
-      content: Text("카카오톡 로그인 실패"),
+      content: Text("로그인 실패"),
       backgroundColor: Colors.grey,
       duration: Duration(seconds: 5),
       action: SnackBarAction(
