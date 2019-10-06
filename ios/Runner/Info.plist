@@ -2,16 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>KAKAO_APP_KEY</key>
-	<string>7cc47fe4b60e08a03391c731f2e54483</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>kakao7cc47fe4b60e08a03391c731f2e54483</string>
-		<string>kakaokompassauth</string>
-		<string>storykompassauth</string>
-		<string>kakaolink</string>
-		<string>storylink</string>
-	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>jooding.com</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -25,24 +31,19 @@
 			</array>
 		</dict>
 	</array>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>jooding</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>7cc47fe4b60e08a03391c731f2e54483</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakao7cc47fe4b60e08a03391c731f2e54483</string>
+		<string>kakaokompassauth</string>
+		<string>storykompassauth</string>
+		<string>kakaolink</string>
+		<string>kakaotalk-5.9.7</string>
+		<string>storylink</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
