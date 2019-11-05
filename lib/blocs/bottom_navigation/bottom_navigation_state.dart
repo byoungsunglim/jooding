@@ -2,6 +2,8 @@ import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 import 'package:jooding/models/account.dart';
 
+import 'package:device_calendar/device_calendar.dart';
+
 @immutable
 abstract class BottomNavigationState extends Equatable {
   BottomNavigationState([List props = const []]) : super(props);
@@ -22,12 +24,12 @@ class PageLoading extends BottomNavigationState {
 }
 
 class HomePageLoaded extends BottomNavigationState {
-  final String text;
+  final List<Calendar> data;
 
-  HomePageLoaded({@required this.text}) : super([text]);
+  HomePageLoaded({@required this.data}) : super([data]);
 
   @override
-  String toString() => 'HomePageLoaded with text: $text';
+  String toString() => 'HomePageLoaded with text: $data';
 }
 
 class InputPageLoaded extends BottomNavigationState {

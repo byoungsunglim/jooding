@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'kakaoLogin.dart';
-import 'package:jooding/questionnaires.dart';
+import 'package:jooding/welcomeScreen.dart';
 import 'package:jooding/googleLogin.dart';
 import 'package:flutter_kakao_login/flutter_kakao_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -83,13 +83,13 @@ class LoginScreen extends StatelessWidget {
                       print('Response body: ${response.body}');
 
                       SharedPreferences prefs = await SharedPreferences.getInstance();
-                      prefs.setBool("welcome", true);
+                      prefs.setBool("login", true);
                       prefs.setString("uid", userEmail);
                
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (BuildContext context) => Questionnaires(),
+                          builder: (BuildContext context) => WelcomeScreen(),
                       ));
                     }
                     else {
@@ -131,13 +131,13 @@ class LoginScreen extends StatelessWidget {
                     print('Response body: ${response.body}');
                     
                     SharedPreferences prefs = await SharedPreferences.getInstance();
-                    prefs.setBool("welcome", true);
+                    prefs.setBool("login", true);
                     prefs.setString("uid", user.email);
                     
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {
-                          return Questionnaires();
+                          return WelcomeScreen();
                         },
                       ),
                     );

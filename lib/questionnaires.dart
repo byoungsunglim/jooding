@@ -69,8 +69,11 @@ class _QuestionnairesState extends State<Questionnaires> {
             );
         },
         itemCount: 3,
+        loop: false,
         pagination: new SwiperPagination(),
-        control: new SwiperControl(),
+        control: new SwiperControl(
+          color: Colors.transparent
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

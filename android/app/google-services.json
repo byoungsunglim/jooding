@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:852288103818:android:458f18bd428eec9d5f1473",
+        "mobilesdk_app_id": "1:852288103818:android:94cef9af8ebbacd55f1473",
         "android_client_info": {
-          "package_name": "com.jooding.android"
+          "package_name": "com.sooltartup.jooding"
         }
       },
       "oauth_client": [
         {
-          "client_id": "852288103818-c5a6imtotap6rb8ns1achehkajm6t08v.apps.googleusercontent.com",
+          "client_id": "852288103818-01r4s2d413ahrq3ui6bm5lt891lng7tm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.jooding.android",
+            "package_name": "com.sooltartup.jooding",
             "certificate_hash": "49f0070bc240ef92270f42708057aeec04870f4e"
           }
         },
@@ -38,6 +38,13 @@
             {
               "client_id": "852288103818-e252t1ajg2aq0pqmv6nv6qjhoqf8vaon.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "852288103818-0p3vr2n8oc3v0evq6ec490jj3ehe63h2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sooltartup.jooding"
+              }
             }
           ]
         }

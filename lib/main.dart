@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jooding/loginScreen.dart';
+import 'package:jooding/welcomeScreen.dart';
+import 'package:jooding/questionnaires.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jooding/home.dart';
@@ -25,9 +27,19 @@ class _MyAppState extends State<MyApp> {
             return new SimpleBlocDelegate();
           default:
             if (!snapshot.hasError) {
-              return snapshot.data.getBool("welcome") != null
-                  ? new SimpleBlocDelegate()
-                  : new LoginScreen();
+              // return snapshot.data.getBool("welcome") != null
+              if (snapshot.data.getBool("login") == null) {
+                return new LoginScreen();
+              }
+              else if (snapshot.data.getBool("welcome") == null) {
+                return new WelcomeScreen();
+              }
+              else if (snapshot.data.getBool("questionnaires") == null) {
+                return new Questionnaires();
+              }
+              else {
+                return new SimpleBlocDelegate();
+              }
             } else {
             }
         }

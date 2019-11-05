@@ -9,6 +9,8 @@ import 'package:jooding/repositories/input_page.dart';
 import 'package:jooding/repositories/my_page.dart';
 import 'package:jooding/models/account.dart';
 
+import 'package:device_calendar/device_calendar.dart';
+
 class BottomNavigationBloc
     extends Bloc<BottomNavigationEvent, BottomNavigationState> {
   final HomePage homePage;
@@ -24,13 +26,13 @@ class BottomNavigationBloc
         assert(inputPage != null),
         assert(myPage != null);
 
-  Future<String> _getHomePageData() async {
-    String data = homePage.data;
-    if (data == null) {
+  Future<List<Calendar>> _getHomePageData() async {
+    List<Calendar> _calendars = homePage.data;
+    if (_calendars == null) {
       await homePage.fetchData();
-      data = homePage.data;
+      _calendars = homePage.data;
     }
-    return data;
+    return _calendars;
   }
 
   Future<String> _getInputPageData() async {
@@ -66,8 +68,8 @@ class BottomNavigationBloc
       yield PageLoading();
 
       if (this.currentIndex == 0) {
-        String data = await _getHomePageData();
-        yield HomePageLoaded(text: data);
+        List<Calendar> data = await _getHomePageData();
+        yield HomePageLoaded(data: data);
       }
       if (this.currentIndex == 1) {
         String data = await _getInputPageData();

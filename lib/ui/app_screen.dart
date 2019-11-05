@@ -23,7 +23,7 @@ class AppScreen extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
           if (state is HomePageLoaded) {
-            return HomePage(text: state.text);
+            return HomePage(data: state.data);
           }
           if (state is InputPageLoaded) {
             return InputPage(text: state.text);
