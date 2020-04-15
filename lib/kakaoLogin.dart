@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter_kakao_login/flutter_kakao_login.dart';
 
 class KakaoLogin {
